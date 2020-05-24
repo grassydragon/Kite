@@ -1,0 +1,10 @@
+export let State = {
+    TAKEOFF: 0,
+    FLIGHT_RESUMED: 1,
+    FLIGHT_PAUSED: 2,
+    LANDED: 3,
+    MENU_FREE_FLIGHT: 4,
+    MENU_LEARNING: 5,
+    MENU_GAMEPAD: 6,
+    MENU_PROGRESS: 7
+};

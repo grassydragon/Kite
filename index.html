@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Kite</title>
+    <link rel="stylesheet" href="res/css/main.css">
+    <script type="module" src="src/js/math/matrix-extensions.js"></script>
+    <script type="module" src="src/js/math/vector-extensions.js"></script>
+    <script type="module" src="src/js/main.js"></script>
+</head>
+<body>
+<canvas id="canvas"></canvas>
+<div id="main-container">
+    <div id="buttons-grid">
+        <button type="button" id="menu-button" class="image-button">
+            <img src="res/img/menu-button.png">
+        </button>
+        <button type="button" id="restart-button" class="image-button">
+            <img src="res/img/restart-button.png">
+        </button>
+        <button type="button" id="pause-button" class="image-button">
+            <img src="res/img/pause-button.png">
+        </button>
+        <button type="button" id="resume-button" class="image-button">
+            <img src="res/img/resume-button.png">
+        </button>
+    </div>
+    <p id="directions"></p>
+    <div id="parameters-grid">
+        <p>Wind:</p>
+        <p id="wind-name"></p>
+        <p>Lines:</p>
+        <p id="lines-name"></p>
+    </div>
+    <div id="mode-grid">
+        <p>Mode:</p>
+        <p id="mode-name"></p>
+        <p>Lesson:</p>
+        <p id="lesson-name"></p>
+    </div>
+</div>
+<div id="menu-container">
+    <button type="button" id="close-button" class="image-button">
+        <img src="res/img/close-button.png">
+    </button>
+    <div id="menu-buttons-grid">
+        <button type="button" id="free-flight-menu-button" class="button" disabled>Free Flight</button>
+        <button type="button" id="learning-menu-button" class="button">Learning</button>
+        <button type="button" id="gamepad-menu-button" class="button">Gamepad</button>
+        <button type="button" id="progress-menu-button" class="button">Progress</button>
+    </div>
+    <div id="free-flight-menu-grid">
+        <div id="wind-grid">
+            <p id="wind-title">Wind:</p>
+            <label for="light-wind-input">Light</label>
+            <input type="radio" name="wind" id="light-wind-input" class="radio" autocomplete="off">
+            <label for="moderate-wind-input">Moderate</label>
+            <input type="radio" name="wind" id="moderate-wind-input" class="radio" autocomplete="off">
+            <label for="strong-wind-input">Strong</label>
+            <input type="radio" name="wind" id="strong-wind-input" class="radio" autocomplete="off">
+        </div>
+        <div id="lines-grid">
+            <p id="lines-title">Lines:</p>
+            <label for="short-lines-input">Short</label>
+            <input type="radio" name="lines" id="short-lines-input" class="radio" autocomplete="off">
+            <label for="medium-lines-input">Medium</label>
+            <input type="radio" name="lines" id="medium-lines-input" class="radio" autocomplete="off">
+            <label for="long-lines-input">Long</label>
+            <input type="radio" name="lines" id="long-lines-input" class="radio" autocomplete="off">
+        </div>
+        <button type="button" id="fly-button" class="button">Fly</button>
+    </div>
+    <div id="learning-menu-grid"></div>
+    <div id="gamepad-menu-grid">
+        <p>Left Stick Y Index:</p>
+        <p id="left-stick-y-index"></p>
+        <p>Left Stick Y Direction:</p>
+        <p id="left-stick-y-direction"></p>
+        <button type="button" id="setup-left-stick-y-button" class="button">Setup</button>
+        <p>Right Stick Y Index:</p>
+        <p id="right-stick-y-index"></p>
+        <p>Right Stick Y Direction:</p>
+        <p id="right-stick-y-direction"></p>
+        <button type="button" id="setup-right-stick-y-button" class="button">Setup</button>
+        <p>Back Button Index:</p>
+        <p id="back-button-index"></p>
+        <button type="button" id="setup-back-button-button" class="button">Setup</button>
+        <p>Start Button Index:</p>
+        <p id="start-button-index"></p>
+        <button type="button" id="setup-start-button-button" class="button">Setup</button>
+        <button type="button" id="cancel-button" class="button">Cancel</button>
+    </div>
+    <div id="progress-menu-grid">
+        <button type="button" id="unlock-lessons-button" class="button">Unlock Lessons</button>
+        <button type="button" id="reset-progress-button" class="button">Reset Progress</button>
+    </div>
+</div>
+</body>
+</html>
