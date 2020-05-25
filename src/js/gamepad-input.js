@@ -97,7 +97,7 @@ export class GamepadInput {
                 let axisDirection = null;
 
                 for (let i = 0; i < axes.length; i++) {
-                    if (Math.abs(axes[i]) === 1) {
+                    if (Math.abs(axes[i]) >= 0.9) {
                         axisIndex = i;
                         axisDirection = Math.sign(axes[i]);
                         break;

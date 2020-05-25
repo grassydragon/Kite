@@ -598,7 +598,7 @@ function animate() {
         if (leftStickY < 0.1 && rightStickY < 0.1) {
             start = clock.elapsedTime;
         }
-        else if (leftStickY === 1 && rightStickY === 1) {
+        else if (leftStickY >= 0.9 && rightStickY >= 0.9) {
             if (clock.elapsedTime - start <= 0.5) resume();
         }
     }
