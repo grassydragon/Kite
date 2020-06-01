@@ -262,3 +262,11 @@ label {
     justify-items: center;
     align-items: center;
 }
+
+#gamepad-overlay-canvas {
+    width: 20rem;
+    height: 10rem;
+    position: absolute;
+    right: 1rem;
+    top: 1rem;
+}

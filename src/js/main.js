@@ -92,6 +92,9 @@ let progressMenuGrid;
 let unlockLessonsButton;
 let resetProgressButton;
 
+let gamepadOverlayCanvas;
+let gamepadOverlayContext;
+
 let renderer;
 
 let scene;
@@ -418,6 +421,11 @@ function initializeElements() {
 
     resetProgressButton = document.getElementById("reset-progress-button");
     resetProgressButton.addEventListener("click", resetProgress);
+
+    gamepadOverlayCanvas = document.getElementById("gamepad-overlay-canvas");
+    gamepadOverlayContext = gamepadOverlayCanvas.getContext("2d");
+
+    gamepadOverlayContext.fillStyle = "#ffffff";
 }
 
 function initializeLearningMenu() {
@@ -705,6 +713,8 @@ function animate() {
 
     renderer.render(scene, camera);
 
+    drawGamepadOverlay();
+
     requestAnimationFrame(animate);
 }
 
@@ -838,6 +848,39 @@ function updateGamepadOutput() {
     backButtonIndex.innerText = gamepadInput.backButtonIndex;
 
     startButtonIndex.innerText = gamepadInput.startButtonIndex;
+}
+
+function drawGamepadOverlay() {
+    let width = gamepadOverlayCanvas.width;
+    let height = gamepadOverlayCanvas.height;
+
+    let context = gamepadOverlayContext;
+
+    let leftStickX = 0;
+    let leftStickY = 0;
+
+    let rightStickX = 0;
+    let rightStickY = 0;
+
+    if (gamepadInput.available) {
+        leftStickX = gamepadInput.gamepad.axes[0];
+        leftStickY = gamepadInput.gamepad.axes[1];
+
+        rightStickX = gamepadInput.gamepad.axes[2];
+        rightStickY = gamepadInput.gamepad.axes[3];
+    }
+
+    context.clearRect(0, 0, width, height);
+
+    context.fillRect(height * 0.05, height * 0.49, height * 0.9, height * 0.02);
+    context.fillRect(height * 0.49, height * 0.05, height * 0.02, height * 0.9);
+
+    context.fillRect(height * 1.05, height * 0.49, height * 0.9, height * 0.02);
+    context.fillRect(height * 1.49, height * 0.05, height * 0.02, height * 0.9);
+
+    context.fillRect(height * 0.45 * (1 + leftStickX), height * 0.45 * (1 + leftStickY), height * 0.1, height * 0.1);
+
+    context.fillRect(height + height * 0.45 * (1 + rightStickX), height * 0.45 * (1 + rightStickY), height * 0.1, height * 0.1);
 }
 
 function openMenu() {
