@@ -617,7 +617,10 @@ function animate() {
     else if (state === State.FLIGHT_RESUMED) {
         if (!gamepadInput.startButtonPressed) startButtonReleased = true;
 
-        if (gamepadInput.backButtonPressed) {
+        if (document.hidden) {
+            pause();
+        }
+        else if (gamepadInput.backButtonPressed) {
             restart();
         }
         else if (startButtonReleased && gamepadInput.startButtonPressed) {
