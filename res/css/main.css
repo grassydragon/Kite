@@ -262,11 +262,3 @@ label {
     justify-items: center;
     align-items: center;
 }
-
-#log {
-    margin: 0;
-    position: absolute;
-    left: 1rem;
-    top: 1rem;
-    visibility: hidden;
-}
